@@ -157,7 +157,7 @@ alias yay='yay --aur'
 alias xampp='sudo /opt/lampp/manager-linux-x64.run'
 
 # dot-config git repository alias
-alias config='git --git-dir=$HOME/dot-config --work-tree=$HOME'
+alias dot-config='git --git-dir=$HOME/dot-config --work-tree=$HOME'
 
 # clean fetch screen
 AUX_PS1=$PS1
