@@ -11,19 +11,18 @@ export ZSH="/home/damiani/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
 
-SPACESHIP_VI_MODE_NORMAL=‡
-SPACESHIP_VI_MODE_INSERT=…
+SPACESHIP_VI_MODE_NORMAL="‡"
+SPACESHIP_VI_MODE_INSERT="…"
 
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_DEFAULT_PREFIX="· "
 
-SPACESHIP_CHAR_SYMBOL=●
+SPACESHIP_CHAR_SYMBOL="●"
 SPACESHIP_CHAR_SUFFIX=" "
 
 SPACESHIP_DIR_TRUNC=2
-SPACESHIP_DIR_TRUNC_PREFIX=…/
-SPACESHIP_DIR_COLOR=yellow
+SPACESHIP_DIR_TRUNC_PREFIX="…/"
 
 SPACESHIP_GIT_PREFIX="· "
 
@@ -32,6 +31,7 @@ SPACESHIP_PACKAGE_SHOW=false
 SPACESHIP_NODE_SHOW=false
 
 SPACESHIP_EXEC_TIME_SHOW=false
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -74,7 +74,7 @@ export UPDATE_ZSH_DAYS=5
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -105,14 +105,14 @@ bindkey -M vicmd 'ç' vi-forward-char
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=pt_BR.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -128,40 +128,8 @@ autoload -U zmv
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi='nvim'
-alias vim='nvim'
-
-alias more='less'
-
-# sudo alias
-alias pacman='sudo pacman'
-
-alias fdisk='sudo fdisk'
-
-alias mount='sudo mount'
-alias umount='sudo umount'
-
-# trash can alias
-alias rm='trash-put'
-alias list='trash-list'
-alias empty='trash-empty'
-alias restore='trash-restore'
-
-# Vim alias
-alias q='exit'
-alias :q='exit'
-
-alias yay='yay --aur'
-
-#xampp control panel
-alias xampp='sudo /opt/lampp/manager-linux-x64.run'
-
-# dot-config git repository alias
-alias dot-config='git --git-dir=$HOME/dot-config --work-tree=$HOME'
-
-# clean fetch screen
-AUX_PS1=$PS1
-alias ufetch='PS1="" && clear && ufetch && PS1=$AUX_PS1'
+# alias file
+source $HOME/.aliases
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -172,8 +140,6 @@ if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
-source /usr/share/doc/pkgfile/command-not-found.zsh
-
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -183,4 +149,5 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zdharma/fast-syntax-highlighting
 
-clear
+# command-not-found
+source /usr/share/doc/pkgfile/command-not-found.zsh
