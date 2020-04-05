@@ -1,0 +1,32 @@
+alias vi='nvim'
+alias vim='nvim'
+
+alias more='less'
+
+alias update='sudo pacman'
+
+# sudo alias
+alias mount='sudo mount'
+alias umount='sudo umount'
+
+# trash can alias
+alias rm='trash-put'
+alias list='trash-list'
+alias empty='trash-empty'
+alias restore='trash-restore'
+
+# Vim alias
+alias q='exit'
+alias :q='exit'
+
+alias yay='yay --aur'
+
+# xampp control panel
+alias xampp='sudo /opt/lampp/manager-linux-x64.run'
+
+# dot-config git repository alias
+alias dot-config='git --git-dir=$HOME/dot-config --work-tree=$HOME'
+
+# clean fetch screen
+alias ufetch='clear && ufetch'
+
