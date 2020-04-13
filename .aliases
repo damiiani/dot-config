@@ -5,6 +5,9 @@ alias more='less'
 
 alias update='sudo pacman'
 
+alias pacup='sudo pacman -Syu'
+alias paclean='packages=$(pacman -Qdtq) ; if [ $packages ]; then sudo pacman -Rcns $packages; else echo "No packages to clean"; fi'
+
 # sudo alias
 alias mount='sudo mount'
 alias umount='sudo umount'
@@ -29,4 +32,4 @@ alias dot-config='git --git-dir=$HOME/dot-config --work-tree=$HOME'
 
 # clean fetch screen
 alias ufetch='clear && ufetch'
-
+alias neofetch='clear && neofetch'
