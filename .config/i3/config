@@ -12,7 +12,7 @@
 exec_always --no-startup-id devilspie -a &
 exec_always --no-startup-id picom -CGb &
 exec_always --no-startup-id xrandr --dpi 96x96 --output HDMI-0 --primary --left-of DVI-I-0 &
-exec_always --no-startup-id feh --no-fehbg --bg-fill '/usr/share/backgrounds/dracula-arch.png' &
+exec_always --no-startup-id feh --no-fehbg --bg-fill '/usr/share/backgrounds/gnu-linux.png' &
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 set $mod Mod1
