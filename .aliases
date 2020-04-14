@@ -7,6 +7,7 @@ alias update='sudo pacman'
 
 alias pacup='sudo pacman -Syu'
 alias paclean='packages=$(pacman -Qdtq) ; if [ $packages ]; then sudo pacman -Rcns $packages; else echo "No packages to clean"; fi'
+alias waka-waka='pacup && printf "\n" && paclean'
 
 # sudo alias
 alias mount='sudo mount'
