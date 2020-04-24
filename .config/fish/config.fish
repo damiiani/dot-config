@@ -1,4 +1,4 @@
-set PATH $PATH:/var/lib/snapd:/snap/bin:/snap/bin:/opt/lampp:(yarn global bin):/home/damiani/.gem/ruby/2.7.0/bin
+# set PATH $PATH:/var/lib/snapd:/snap/bin:/snap/bin:/opt/lampp:(yarn global bin):/home/damiani/.gem/ruby/2.7.0/bin
 
 function vi
     command nvim $argv
@@ -80,4 +80,11 @@ end
 function neofetch
     command clear
     command neofetch
+end
+
+# Start X at login
+if status is-login
+  if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+    exec startx -- -keeptty
+  end
 end
