@@ -36,6 +36,7 @@ exec --no-startup-id nm-applet
 # Use pactl to adjust volume in PulseAudio.
 bindsym $mod+Shift+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+i exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ "toggle"
 
 # PrintScreen key print full screen
 bindsym Print exec gnome-screenshot -i 
@@ -50,7 +51,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # environment variables (launch snap apps)
-exec_always --no-startup-id export PATH=$PATH:/snap/bin:/opt/lampp:$(yarn global bin)
+exec_always --no-startup-id set PATH $PATH:/var/lib/snapd/snap/bin:/snap/bin:/opt/lampp:(yarn global bin):/home/damiani/.gem/ruby/2.7.0/bin
 
 # start rofi (a program launcher)
 bindsym $mod+d exec rofi -theme gruvbox-dark -show drun -show-icons -terminal termite
