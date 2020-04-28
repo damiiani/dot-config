@@ -1,0 +1,135 @@
+* {
+    font: "FiraSans 13";
+    highlight: bold italic;
+
+    background: 	                rgba(40, 42, 54, 100%);
+    current-line: 	                rgba(68, 71, 90, 100%);
+    selection: 	                    rgba(68, 71, 90, 100%);
+    foreground: 	                rgba(248, 248, 242, 100%);
+    comment: 	                    rgba(98, 114, 164, 100%);
+    cyan: 	                        rgba(139, 233, 253, 100%);
+    green: 	                        rgba(80, 250, 123, 100%);
+    orange: 	                    rgba(255, 184, 108, 100%);
+    pink: 	                        rgba(255, 121, 198, 100%);
+    purple: 	                    rgba(189, 147, 249, 100%);
+    red: 	                        rgba(255, 85, 85, 100%);
+    yellow: 	                    rgba(241, 250, 140, 100%);
+
+    background-color:               @background;
+    border-color:                   @purple;
+    separatorcolor:                 @border-color;
+
+    normal-background:              @background;
+    normal-foreground:              @foreground;
+    alternate-normal-background:    @normal-background;
+    alternate-normal-foreground:    @normal-foreground;
+    selected-normal-background:     @purple;
+    selected-normal-foreground:     @normal-background;
+
+    active-background:              @normal-foreground;
+    active-foreground:              @normal-background;
+    alternate-active-background:    @active-background;
+    alternate-active-foreground:    @active-foreground;
+    selected-active-background:     @normal-background;
+    selected-active-foreground:     @normal-foreground;
+
+    urgent-background:              @normal-background;
+    urgent-foreground:              @red;
+    alternate-urgent-background:    @urgent-background;
+    alternate-urgent-foreground:    @urgent-foreground;
+    selected-urgent-background:     @urgent-background;
+    selected-urgent-foreground:     @urgent-foreground;
+}
+
+window {
+    background-color: @background;
+    border: 2px;
+    padding: 5px;
+}
+
+mainbox {
+    border: 0;
+    padding: 0;
+    spacing: 10px;
+}
+
+message {
+    border: 2px;
+    border-color: @separatorcolor;
+    padding: 1px;
+}
+
+textbox {
+    highlight: @highlight;
+    text-color: @foreground;
+}
+
+listview {
+    border: 2px 0 0;
+    padding: 2px 0 0;
+    border-color: @separatorcolor;
+    spacing: 2px;
+}
+
+element {
+    border: 0;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+element.normal.normal {
+    background-color: @normal-background;
+}
+
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color: @urgent-foreground;
+}
+
+element.normal.active {
+    background-color: @active-background;
+    text-color: @active-foreground;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color: @selected-urgent-foreground;
+}
+
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color: @selected-active-foreground;
+}
+
+sidebar {
+    border: 2px 0 0;
+    border-color: @separatorcolor;
+}
+
+inputbar {
+    spacing: 0;
+    text-color: @normal-foreground;
+    padding: 2px;
+    children: [prompt, textbox-prompt-sep, entry, case-indicator];
+}
+
+case-indicator, entry, prompt, button {
+    spacing: 0;
+    text-color: @normal-foreground;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+}
+
+textbox-prompt-sep {
+    expand: false;
+    str: " · ";
+    text-color: @normal-foreground;
+}

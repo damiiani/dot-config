@@ -1,0 +1,19 @@
+configuration {
+    display-drun: "Apps";
+    display-window: "Window";
+    show-icons: true;
+}
+ 
+* {
+    lines: 15;
+    columns: 1;
+    text-color: #f8f8f2;
+}
+ 
+#window {
+    border: 0;
+    border-radius: 10px;
+    padding: 10;
+    width: 30%;
+    height: 41%;
+}
