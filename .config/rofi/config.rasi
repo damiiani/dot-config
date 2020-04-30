@@ -7,12 +7,13 @@ configuration {
 * {
     lines: 15;
     columns: 1;
-    text-color: #f8f8f2;
+    text-color: rgba(248, 248, 242, 100%);
+    background-color: rgba(40, 42, 54, 100%);
 }
  
 #window {
     border: 0;
-    border-radius: 10px;
+    border-radius: 0;
     padding: 10;
     width: 30%;
     height: 41%;
