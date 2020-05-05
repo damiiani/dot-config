@@ -1,175 +1,88 @@
-[settings]
-throttle-ms = 50
-throttle-limit = 5
-
-[bar/top]
-monitor = ${env:MONITOR:}
-width = 100%
-height = 27
-offset-y = 5
-
-background = #005f627a
+[color]
+background = #00ffffff
 foreground = #f2f2f2
 
-overline-size = 2
-overline-color = #bc92f8
-underline-size = 2
-underline-color = #bc92f8
+black_dark  = #000000
+black_light  = #4d4d4d
 
-spacing = 1
+cyan_dark  = #8be9fd
+cyan_light = #9aedfe
+
+blue_dark  = #bd93f9
+blue_light = #caa9fa
+
+yellow_dark = #f1fa8c
+yellow_light = #f4f99d
+
+green_dark  = #50fa7b
+green_light = #5af78e
+
+red_dark  = #ff5555
+red_light  = #ff6e67
+
+magenta_dark  = #ff79c6
+magenta_light = #ff92d0
+
+[bar/dracula]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 30
+offset-y = 5
+
+background = ${color.background}
+foreground = ${color.foreground}
+
 padding-right = 2
-module-margin-left = 0
 module-margin-right = 2
 
-font-0 = NotoSans-Regular:size=8;0
-font-1 = FontAwesome:size=8;-2
+font-0 = NotoSans-Regular:size=12;0
+font-1 = FontAwesome:size=13;3
 font-2 = ypn envypn:size=10;2
 font-3 = Termsynu:size=8;-1
-font-4 = Unifont:size=6;-3
+font-4 = Unifont:size=6;0
 
 modules-left = i3
 modules-center = xwindow
 modules-right = volume cpu clock
 
-[module/bspwm]
-type = internal/bspwm
-
-format = <label-state> <label-mode>
-
-label-active = %index%
-label-active-padding = 2
-label-active-margin = 1
-label-active-font = 3
-label-active-foreground = #fff
-label-active-background = #2fbbf2
-label-active-overline = #148ebe
-label-active-underline = #148ebe
-
-label-occupied = %index%
-label-occupied-padding = 2
-label-occupied-margin = 1
-label-occupied-background = #eeeeee
-label-occupied-foreground = #dd222222
-label-occupied-overline = #c5c5c5
-label-occupied-underline = #c5c5c5
-label-occupied-font = 3
-
-label-urgent = %index%
-label-urgent-padding = 2
-label-urgent-margin = 1
-label-urgent-font = 3
-
-label-empty = %index%
-label-empty-padding = 2
-label-empty-margin = 1
-label-empty-font = 3
-
 [module/i3]
 type = internal/i3
 
-format = <label-state> <label-mode>
+format = "<label-state> <label-mode>"
 format-spacing = 0
 
-label-focused = %index%
+label-focused = "%index%"
 label-focused-padding = 4
 label-focused-margin = 0
+label-focused-background = ${color.blue_dark}
+label-focused-foreground = ${color.foreground}
 label-focused-font = 3
-label-focused-foreground = #fff
-label-focused-background = #2fbbf2
-label-focused-overline = #148ebe
-label-focused-underline = #148ebe
 
-label-unfocused = %index%
+label-unfocused = "%index%"
 label-unfocused-padding = 4
 label-unfocused-margin = 0
-label-unfocused-background = #eeeeee
-label-unfocused-foreground = #dd222222
-label-unfocused-overline = #c5c5c5
-label-unfocused-underline = #c5c5c5
+label-unfocused-background = ${color.foreground}
+label-unfocused-foreground = ${color.black_light}
 label-unfocused-font = 3
 
-label-urgent = %index%
+label-urgent = "%index%"
 label-urgent-padding = 2
 label-urgent-margin = 1
 label-urgent-font = 3
 
-label-visible = %index%
+label-visible = "%index%"
 label-visible-padding = 4
 label-visible-margin = 0
 label-visible-font = 3
 
-[module/cpu]
-type = internal/cpu
-interval = 0.5
+index-sort = true
 
-format = <label> <ramp-coreload>
-format-background = #66cc99
-format-foreground = #2a5c45
-format-underline = #60eaa5
-format-overline = #60eaa5
-format-padding = 2
-
-label = cpu
+[module/xwindow]
+type = internal/xwindow
 label-font = 3
 
-ramp-coreload-0 = ▁
-ramp-coreload-0-font = 5
-ramp-coreload-0-foreground = #000000
-ramp-coreload-1 = ▂
-ramp-coreload-1-font = 5
-ramp-coreload-1-foreground = #000000
-ramp-coreload-2 = ▃
-ramp-coreload-2-font = 5
-ramp-coreload-2-foreground = #000000
-ramp-coreload-3 = ▄
-ramp-coreload-3-font = 5
-ramp-coreload-3-foreground = #000000
-ramp-coreload-4 = ▅
-ramp-coreload-4-font = 5
-ramp-coreload-4-foreground = #ffffff
-ramp-coreload-5 = ▆
-ramp-coreload-5-font = 5
-ramp-coreload-5-foreground = #ffffff
-ramp-coreload-6 = ▇
-ramp-coreload-6-font = 5
-ramp-coreload-6-foreground = #ff3b51
-ramp-coreload-7 = █
-ramp-coreload-7-font = 5
-ramp-coreload-7-foreground = #ff3b51
-
-[module/memory]
-type = internal/memory
-
-format = <label> <bar-used>
-format-padding = 2
-format-background = #cb66cc
-format-foreground = #ffe3ff
-format-underline = #e58de6
-format-overline = #e58de6
-
-label = memory
-label-font = 3
-
-bar-used-width = 10
-bar-used-indicator = |
-bar-used-indicator-font = 4
-bar-used-indicator-foreground = #ffaaf5
-bar-used-fill = ─
-bar-used-fill-font = 4
-bar-used-fill-foreground = #ffaaf5
-bar-used-empty = ─
-bar-used-empty-font = 4
-bar-used-empty-foreground = #934e94
-
-[module/clock]
-type = internal/date
-date = %%{T3}%H:%M%%{T-}
-
-format-padding = 2
-format-background = #ff4279
-format-foreground = #ffcddc
-format-underline = #ff63a5
-format-overline = #ff63a5
+label = "%title%"
+label-maxlen = 50
 
 [module/volume]
 type = internal/pulseaudio
@@ -177,23 +90,61 @@ speaker-mixer = Speaker
 headphone-mixer = Headphone
 headphone-id = 9
 
-format-volume-padding = 2
-format-volume-background = #fff85a
-format-volume-foreground = #43433a
-format-volume-underline = #fffb8f
-format-volume-overline = #fffb8f
+format-volume-background = ${color.yellow_dark}
+format-volume-foreground = ${color.black_light}
 
-format-muted-padding = 2
-format-muted-background = #77ffffff
+format-muted-background = ${color.yellow_light}
 format-muted-foreground = #666666
 
-label-volume = volume %percentage%
+label-volume = "volume %percentage%%"
 label-volume-font = 3
-label-muted = sound muted
+label-muted = "sound muted"
 label-muted-font = 3
 
-[module/xwindow]
-type = internal/xwindow
-label-font = 3
+format-volume-padding = 5
+format-muted-padding = 5
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = "<ramp-coreload>"
+format-background = ${color.green_light}
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 5
+ramp-coreload-0-foreground = ${color.black_light}
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 5
+ramp-coreload-1-foreground = ${color.black_light}
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 5
+ramp-coreload-2-foreground = ${color.black_dark}
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 5
+ramp-coreload-3-foreground = ${color.black_dark}
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 5
+ramp-coreload-4-foreground = ${color.foreground}
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 5
+ramp-coreload-5-foreground = ${color.foreground}
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 5
+ramp-coreload-6-foreground = ${color.red_light}
+ramp-coreload-7 = █
+ramp-coreload-7-font = 5
+ramp-coreload-7-foreground = ${color.red_dark}
+
+format-padding = 5
+
+[module/clock]
+type = internal/date
+date = "%%{T3}%H:%M%%{T-}"
+
+format-background = ${color.magenta_dark}
+format-foreground = ${color.foreground}
+
+format-padding = 5
 
 ; vim:ft=dosini
