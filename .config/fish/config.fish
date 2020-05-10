@@ -1,4 +1,4 @@
-# set PATH $PATH:/var/lib/snapd:/snap/bin:/snap/bin:/opt/lampp:(yarn global bin):/home/damiani/.gem/ruby/2.7.0/bin
+set PATH $PATH:(yarn global bin)
 
 function vi
     command nvim $argv
@@ -13,14 +13,14 @@ end
 
 function pacup
     command sudo pacman -Syu
-     yay -Syu
+    command yay -Syu
 end
 function paclean
     set packages (pacman -Qdtq)
     if test -n "$packages"
         sudo pacman -Rcns $packages
     else
-        echo "No packages to clean"
+        command echo "No packages to clean"
     end
 end
 function waka-waka
@@ -68,8 +68,8 @@ function xampp
 end
 
 # dot-config git repository alias
-function dot-config
-    command git --git-dir=$HOME/dot-config --work-tree=$HOME $argv
+function dot-files
+    command git --git-dir=$HOME/.dot-files --work-tree=$HOME $argv
 end
 
 # clean fetch screen
