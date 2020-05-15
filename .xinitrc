@@ -36,6 +36,8 @@ fi
 picom -CGb
 # Set keyboard to br
 setxkbmap br
+# Set monitor DPI
+xrandr --dpi 96x96
 
 # Start i3wm
 exec i3
