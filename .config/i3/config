@@ -9,10 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-exec_always --no-startup-id devilspie -a &
-exec_always --no-startup-id picom -CGb &
-exec_always --no-startup-id xrandr --dpi 96x96 --output HDMI-0 --primary --left-of DVI-I-0 &
-exec_always --no-startup-id feh --no-fehbg --bg-fill '/usr/share/backgrounds/gnu-linux.png' &
+exec_always --no-startup-id sh $HOME/.fehbg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 set $mod Mod1
@@ -50,11 +47,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# environment variables (launch snap apps)
-exec_always --no-startup-id set PATH $PATH:/var/lib/snapd/snap/bin:/snap/bin:/opt/lampp:(yarn global bin):/home/damiani/.gem/ruby/2.7.0/bin
-
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -theme gruvbox-dark -show drun -show-icons -terminal termite
+bindsym $mod+d exec rofi -theme dracula -show drun -terminal termite
 
 # change focus
 bindsym $mod+j focus left
@@ -62,23 +56,11 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+ccedilla focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+ccedilla move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
