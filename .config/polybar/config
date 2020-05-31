@@ -1,29 +1,29 @@
 [color]
-background = #00282828
-foreground = #ebdbb2
+background = #00ffffff
+foreground = #f2f2f2
 
-black_dark = #282828
-black_light = #928374
+black_dark  = #000000
+black_light  = #4d4d4d
 
-cyan_dark = #689d6a
-cyan_light = #8ec07c
+cyan_dark  = #8be9fd
+cyan_light = #9aedfe
 
-blue_dark = #458588
-blue_light = #83a598
+blue_dark  = #bd93f9
+blue_light = #caa9fa
 
-yellow_dark = #d79921
-yellow_light = #fabd2f
+yellow_dark = #f1fa8c
+yellow_light = #f4f99d
 
-green_dark = #98971a
-green_light = #b8bb26
+green_dark  = #50fa7b
+green_light = #5af78e
 
-red_dark = #cc241d
-red_light = #fb4934
+red_dark  = #ff5555
+red_light  = #ff6e67
 
-magenta_dark = #b16286
-magenta_light = #d3869b
+magenta_dark  = #ff79c6
+magenta_light = #ff92d0
 
-[bar/gruvbox]
+[bar/dracula]
 monitor = ${env:MONITOR:}
 width = 100%
 height = 30
@@ -35,7 +35,7 @@ foreground = ${color.foreground}
 padding-right = 2
 module-margin-right = 2
 
-font-0 = NotoSans-Regular:size=12;1
+font-0 = NotoSans-Regular:size=12;0
 font-1 = FontAwesome:size=13;3
 font-2 = ypn envypn:size=10;2
 font-3 = Termsynu:size=8;-1
@@ -50,12 +50,6 @@ type = internal/i3
 
 format = "<label-state> <label-mode>"
 format-spacing = 0
-
-label-mode-padding = 6
-label-mode-margin = 0
-label-mode-background = ${color.cyan_dark}
-label-mode-foreground = ${color.foreground}
-label-mode-font = 3
 
 label-focused = "%index%"
 label-focused-padding = 6
@@ -99,7 +93,7 @@ headphone-mixer = Headphone
 headphone-id = 9
 
 format-volume-background = ${color.yellow_dark}
-format-volume-foreground = ${color.foreground}
+format-volume-foreground = ${color.black_light}
 
 format-muted-background = ${color.yellow_light}
 format-muted-foreground = #666666
@@ -121,16 +115,16 @@ format-background = ${color.green_light}
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 5
-ramp-coreload-0-foreground = ${color.foreground}
+ramp-coreload-0-foreground = ${color.black_light}
 ramp-coreload-1 = ▂
 ramp-coreload-1-font = 5
-ramp-coreload-1-foreground = ${color.foreground}
+ramp-coreload-1-foreground = ${color.black_light}
 ramp-coreload-2 = ▃
 ramp-coreload-2-font = 5
-ramp-coreload-2-foreground = ${color.foreground}
+ramp-coreload-2-foreground = ${color.black_dark}
 ramp-coreload-3 = ▄
 ramp-coreload-3-font = 5
-ramp-coreload-3-foreground = ${color.foreground}
+ramp-coreload-3-foreground = ${color.black_dark}
 ramp-coreload-4 = ▅
 ramp-coreload-4-font = 5
 ramp-coreload-4-foreground = ${color.foreground}

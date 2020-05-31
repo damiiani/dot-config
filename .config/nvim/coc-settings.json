@@ -1,0 +1,7 @@
+{
+  "html.autoClosingTags": true,
+
+  "javascript.suggestionActions.enabled": false,
+  
+  "eslint.autoFixOnSave": true
+}

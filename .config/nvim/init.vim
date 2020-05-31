@@ -18,20 +18,30 @@ Plug 'tpope/vim-commentary'
 " Syntax for most languages.
 Plug 'sheerun/vim-polyglot'
 
-" Dracula theme.
+" Themes.
 Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 
 " Airline (bottom line Vim).
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Rainbow Parenthesis.
-Plug 'luochen1990/rainbow'
+Plug 'junegunn/rainbow_parentheses.vim'
+
+" Indentation levels
+Plug 'Yggdroot/indentLine'
+
+" Auto closing brackets, parenthesis, etc.
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
+" Leader key to Space
+let g:mapleader = " "
+
 "|-|-|-|-|-| Vim Rainbow Parenthesis configuration |-|-|-|-|-|"
-let g:rainbow_active = 1
+autocmd VimEnter *.* RainbowParentheses
 
 "|-|-|-|-|-| Vim DevIcons configuration |-|-|-|-|-|"
 " Removes [ in front of the first directory
@@ -53,15 +63,20 @@ let g:UltiSnipsEditSplit="vertical"
 "|-|-|-|-|-| Vim Airline configuration |-|-|-|-|-|"
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
 
 let g:airline_symbols_ascii = 1
+
+let g:airline_powerline_fonts = 1
 
 "|-|-|-|-|-| Vim NERDTree configuration |-|-|-|-|-|"
 let NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
+
+let NERDTreeMapCustomOpen='ç'
+
+"|-|-|-|-|-| Vim IndentLines configuration |-|-|-|-|-|"
+let g:indentLine_char_list = ['|']
 
 "|-|-|-|-|-| Vim Coc configuration |-|-|-|-|-|"
 " Some servers have issues with backup files.
@@ -94,9 +109,9 @@ inoremap <silent><expr> <C-space> coc#refresh()
 " position. Coc only does snippet and additional edit on confirm.
 if has('patch8.1.1068')
   " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+  inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Use `[g` and `]g` to navigate diagnostics.
@@ -200,10 +215,10 @@ set termguicolors
 " Enable syntax colors.
 syntax on
 
-" Set Dracula as colorscheme.
+" Set theme
 colorscheme dracula
 
-" Set Airline Dracula theme.
+" Set Airline theme.
 let g:airline_theme = 'dracula'
 
 " Transparency on Vim.
@@ -243,19 +258,22 @@ set confirm
 " Vim mouse enabling
 set mouse=a
 
+set ignorecase
+
 " Set title on tiling window managers
 set title
 
 autocmd FileType javascript      call SetTwoSpacesTab()
 autocmd FileType javascriptreact call SetTwoSpacesTab()
 autocmd FileType json            call SetTwoSpacesTab()
+autocmd FileType vim             call SetTwoSpacesTab()
 
 " If last window open is NERDTree, close it
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 function SetTwoSpacesTab()
-    set shiftwidth=2
-    set tabstop=2
+  set shiftwidth=2
+  set tabstop=2
 endfunction
 
 " Doesn't show return status
@@ -267,9 +285,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 " NERDTree Refresh.
 map <C-x> :NERDTreeRefreshRoot<CR>
-
-" Leader key to Space
-let g:mapleader = " "
 
 " hjkl to jklç.
 noremap ç l
@@ -286,11 +301,12 @@ noremap <C-w>j <C-w>h
 noremap J :bNext<CR>
 noremap Ç :bnext<CR>
 
-inoremap <C-w> <Esc><C-w>
+" inoremap <C-w> <Esc><C-w>
 
 " shortening keystrokes
 noremap q :Kwbd<CR>
-noremap Q :quit!<CR>
+noremap Q :quit<CR>
+noremap <C-d> :quit!<CR>
 tnoremap Q <C-\><C-n>:quit!<CR>
 
 noremap <C-s> :write<CR>
@@ -313,12 +329,15 @@ tnoremap <C-t> <C-\><C-n>:call TermToggle()<CR>
 let g:term_buf = 0
 let g:term_win = 0
 
-function! TermToggle()
+function TermToggle()
     if win_gotoid(g:term_win)
         hide
     else
+        " Go to the far right window
+        wincmd l
         split new
         resize -5
+
         try
             exec "buffer " . g:term_buf
         catch
@@ -394,5 +413,4 @@ function s:Kwbd(kwbdStage)
     endif
   endif
 endfunction
-
 command! Kwbd :call s:Kwbd(1)
