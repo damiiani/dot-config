@@ -5,11 +5,8 @@ alias vim='nvim'
 
 alias more='less'
 
-alias pacup='sudo pacman -Syu'
-alias paclean='packages=$(pacman -Qdtq) ; if [ $packages ]; then sudo pacman -Rcns $packages; else echo "No packages to clean"; fi'
-alias waka-waka='pacup && printf "\n" && paclean'
-
 # trash can alias
+alias crm='rm'
 alias rm='trash-put'
 alias list='trash-list'
 alias empty='trash-empty'
@@ -17,26 +14,12 @@ alias restore='trash-restore'
 
 # Vim alias
 alias q='exit'
-alias :q='exit'
-
-# Check temp
-alias cpu='
-CPU0_TEMP=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq)
-CPU1_TEMP=$(cat /sys/devices/system/cpu/cpu1/cpufreq/scaling_cur_freq)
-CPU2_TEMP=$(cat /sys/devices/system/cpu/cpu2/cpufreq/scaling_cur_freq)
-CPU3_TEMP=$(cat /sys/devices/system/cpu/cpu3/cpufreq/scaling_cur_freq)
-
-CPU_TEMP=$(((CPU0_TEMP + CPU1_TEMP + CPU2_TEMP + CPU3_TEMP) / 4)) && printf "%.2fGHz\n" $((CPU_TEMP / 1000000.0))'
 
 # Download only AUR packages using yay
 alias yay='yay --aur'
 
-# xampp control panel
-alias xampp='sudo /opt/lampp/manager-linux-x64.run'
-
 # dot-config git repository alias
-alias dot-config='git --git-dir=$HOME/dot-config --work-tree=$HOME'
+alias dot-files='git --git-dir=$HOME/.dot-files --work-tree=$HOME'
 
 # clean fetch screen
 alias ufetch='clear && ufetch'
-alias neofetch='clear && neofetch'
