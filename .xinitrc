@@ -38,6 +38,8 @@ picom -CGb
 setxkbmap br
 # Set monitor DPI
 xrandr --dpi 96x96
+# Automount pendrives
+udiskie &
 
 # Start i3wm
 exec i3
