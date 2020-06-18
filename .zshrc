@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/code/bash:$(yarn global bin):$PATH
+export PATH=$HOME/code/bash:$(yarn global bin):$PATH:$HOME/.platformio/penv/bin
+export PIOROOT=$HOME/.platformio
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/damiiani/.oh-my-zsh"
