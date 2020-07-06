@@ -35,6 +35,7 @@ c.confirm_quit = ["always"]
 
 c.content.cookies.store = False
 c.content.headers.accept_language = "pt-BR,pt;q=0.9"
+c.content.headers.user_agent = "Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0"
 c.content.pdfjs = True
 c.content.private_browsing = True
 
