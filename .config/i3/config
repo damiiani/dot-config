@@ -48,7 +48,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -theme dracula -show drun -terminal termite
+bindsym $mod+d exec rofi -theme dracula -show drun -terminal kitty
 
 # change focus
 bindsym $mod+j focus left
